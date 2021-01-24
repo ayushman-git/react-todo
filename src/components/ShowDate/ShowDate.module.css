@@ -1,0 +1,22 @@
+.wrap {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+}
+
+.date {
+  color: #fca311;
+  font-size: 20vw;
+  font-weight: 800;
+  margin: 0;
+}
+
+.month {
+  color: #f8c87a;
+  font-size: 5vw;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
