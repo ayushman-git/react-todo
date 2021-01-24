@@ -1,0 +1,18 @@
+.todosWrap {
+  height: 60vh;
+  background-color: #213155;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 56px;
+  flex-basis: 50%;
+  padding: 3em;
+}
+
+.inp {
+  width: 100%;
+  background-color: #213155;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #4e6497;
+  color: #374a76;
+  font-size: 1.6em;
+}
