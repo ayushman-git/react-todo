@@ -5,6 +5,8 @@
   border-radius: 56px;
   flex-basis: 50%;
   padding: 3em;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .inp {

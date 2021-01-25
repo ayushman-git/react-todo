@@ -1,0 +1,10 @@
+.wrap {
+  background-color: #374a76;
+  border-radius: 20px;
+  padding: 1em;
+  margin: 1em 0em;
+}
+
+.wrap > p {
+  margin: 0;
+}

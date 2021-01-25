@@ -22,17 +22,24 @@ const HomePage = () => {
   const [todos, setTodos] = useState([]);
   const addTodo = (e) => {
     const localTodos = [...todos];
-    localTodos.push({ [date]: e.target.value });
+    localTodos.push({ date: new Date(), description: e.target.value });
 
     setTodos(localTodos);
-  };
-  useEffect(() => {
     console.log(todos);
-  });
+  };
+
+  // useEffect(() => {
+  //   (async function fetchTodos() {
+  //     const data = await fetch("https://jsonplaceholder.typicode.com/todos");
+  //     const todos = await data.json();
+  //     // setTodos(todos.splice(0, 5));
+  //   })();
+  // }, []);
+
   return (
     <section className={styles.wrap}>
       <ShowDate selectedDate={date} monthNames={monthNames} />
-      <Todos addTodo={(e) => addTodo(e)} />
+      <Todos todos={todos} addTodo={(e) => addTodo(e)} />
     </section>
   );
 };
