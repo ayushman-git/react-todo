@@ -2,10 +2,16 @@ import styles from "./Todos.module.css";
 import Todo from "./Todo/Todo";
 
 const Todos = (props) => {
-  const todos = props.todos?.map((todo, index) => {
-    console.log(todo);
-
-    return <Todo key={index} date={todo.date} description={todo.description} />;
+  const todos = props.todos?.map((todo) => {
+    return (
+      <Todo
+        key={todo.id}
+        id={todo.id}
+        completed={todo.completed}
+        description={todo.description}
+        changeStatus={props.changeStatus}
+      />
+    );
   });
 
   const onEnter = (e) => {

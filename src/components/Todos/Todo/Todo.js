@@ -1,10 +1,19 @@
 import styles from "./Todo.module.css";
 
 const Todo = (props) => {
-  console.log(props);
+  const onChangeHandler = (e) => {
+    props.changeStatus(e, props.id);
+  };
   return (
     <div className={styles.wrap}>
-      <p>{props.description}</p>
+      <p className={styles.todoWrap}>
+        {props.description}
+        <input
+          type="checkbox"
+          checked={props.completed}
+          onChange={onChangeHandler}
+        />
+      </p>
     </div>
   );
 };

@@ -8,3 +8,8 @@
 .wrap > p {
   margin: 0;
 }
+
+.todoWrap {
+  display: flex;
+  justify-content: space-between;
+}

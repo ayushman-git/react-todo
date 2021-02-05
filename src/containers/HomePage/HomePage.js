@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./HomePage.module.css";
 import ShowDate from "../../components/ShowDate/ShowDate";
 import Todos from "../../components/Todos/Todos";
+import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
   const [date, setDate] = useState(new Date());
@@ -20,26 +21,38 @@ const HomePage = () => {
     "December",
   ]);
   const [todos, setTodos] = useState([]);
+
   const addTodo = (e) => {
     const localTodos = [...todos];
-    localTodos.push({ date: new Date(), description: e.target.value });
+    localTodos.push({
+      description: e.target.value,
+      completed: false,
+      id: uuidv4(),
+    });
 
     setTodos(localTodos);
-    console.log(todos);
   };
 
-  // useEffect(() => {
-  //   (async function fetchTodos() {
-  //     const data = await fetch("https://jsonplaceholder.typicode.com/todos");
-  //     const todos = await data.json();
-  //     // setTodos(todos.splice(0, 5));
-  //   })();
-  // }, []);
+  const changeStatus = (e, id) => {
+    const localTodos = [...todos];
+    const todoToChange = localTodos.find((todo) => todo.id === id);
+    const todoToChangeIndex = localTodos.findIndex((todo) => todo.id === id);
+
+    todoToChange.completed = !todoToChange.completed;
+    localTodos[todoToChangeIndex] = todoToChange;
+    setTodos(localTodos);
+  };
 
   return (
     <section className={styles.wrap}>
       <ShowDate selectedDate={date} monthNames={monthNames} />
-      <Todos todos={todos} addTodo={(e) => addTodo(e)} />
+      <Todos
+        todos={todos}
+        addTodo={(e) => addTodo(e)}
+        changeStatus={(e, id) => {
+          changeStatus(e, id);
+        }}
+      />
     </section>
   );
 };
