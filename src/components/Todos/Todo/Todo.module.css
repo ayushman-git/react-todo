@@ -12,4 +12,11 @@
 .todoWrap {
   display: flex;
   justify-content: space-between;
+  color: #162449;
+}
+
+.todoWrapDel {
+  display: flex;
+  justify-content: space-between;
+  color: #a8ff75;
 }

@@ -5,7 +5,7 @@ import Todos from "../../components/Todos/Todos";
 import { v4 as uuidv4 } from "uuid";
 
 const HomePage = () => {
-  const [date, setDate] = useState(new Date());
+  const [date] = useState(new Date());
   const [monthNames] = useState([
     "January",
     "February",
