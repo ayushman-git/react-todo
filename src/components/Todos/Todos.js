@@ -10,6 +10,7 @@ const Todos = (props) => {
         completed={todo.completed}
         description={todo.description}
         changeStatus={props.changeStatus}
+        delTodo={props.delTodo}
       />
     );
   });

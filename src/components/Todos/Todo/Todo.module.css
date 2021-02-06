@@ -5,18 +5,32 @@
   margin: 1em 0em;
 }
 
-.wrap > p {
-  margin: 0;
-}
-
 .todoWrap {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #162449;
+}
+
+.todoWrap > p {
+  margin: 0;
 }
 
 .todoWrapDel {
   display: flex;
   justify-content: space-between;
   color: #a8ff75;
+}
+
+.close {
+  height: 0.8rem;
+}
+
+.aside {
+  display: flex;
+  align-items: center;
+}
+
+.aside > *:last-child {
+  margin-left: 1rem;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./HomePage.module.css";
 import ShowDate from "../../components/ShowDate/ShowDate";
 import Todos from "../../components/Todos/Todos";
@@ -29,8 +29,8 @@ const HomePage = () => {
       completed: false,
       id: uuidv4(),
     });
-
     setTodos(localTodos);
+    storeTodosLocal();
   };
 
   const changeStatus = (e, id) => {
@@ -43,12 +43,40 @@ const HomePage = () => {
     setTodos(localTodos);
   };
 
+  const delTodo = (id) => {
+    let localTodos = [...todos];
+    const todoToDelIndex = localTodos.findIndex((todo) => todo.id === id);
+
+    console.log(localTodos);
+    localTodos = localTodos.splice(todoToDelIndex, 1);
+    console.log(localTodos);
+    // setTodos(localTodos);
+  };
+
+  const storeTodosLocal = useCallback(() => {
+    if (todos.length) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
+  }, [todos]);
+
+  useEffect(() => {
+    storeTodosLocal();
+  }, [storeTodosLocal, todos]);
+
+  useEffect(() => {
+    const todosFromLocal = JSON.parse(localStorage.getItem("todos"));
+    if (todosFromLocal) {
+      setTodos(todosFromLocal);
+    }
+  }, []);
+
   return (
     <section className={styles.wrap}>
       <ShowDate selectedDate={date} monthNames={monthNames} />
       <Todos
         todos={todos}
         addTodo={(e) => addTodo(e)}
+        delTodo={delTodo}
         changeStatus={(e, id) => {
           changeStatus(e, id);
         }}
