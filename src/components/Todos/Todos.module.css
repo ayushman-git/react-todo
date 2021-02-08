@@ -22,3 +22,7 @@
 .inp::placeholder {
   color: rgba(252, 163, 17, 0.5);
 }
+
+.todosWrap::-webkit-scrollbar {
+  display: none;
+}

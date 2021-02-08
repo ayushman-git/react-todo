@@ -18,7 +18,7 @@ const Todos = (props) => {
   });
 
   const onEnter = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value.length) {
       props.addTodo(e);
       e.target.value = "";
     }
