@@ -6,11 +6,6 @@ const Navbar = (props) => {
       <div>
         <h1>TODO</h1>
       </div>
-      <ul className={styles.navbarWrapper}>
-        <li>Stats</li>
-        <li>Completed</li>
-        <li>Login</li>
-      </ul>
     </nav>
   );
 };

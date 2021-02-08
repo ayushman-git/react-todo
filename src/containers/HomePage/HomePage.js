@@ -47,10 +47,8 @@ const HomePage = () => {
     let localTodos = [...todos];
     const todoToDelIndex = localTodos.findIndex((todo) => todo.id === id);
 
-    console.log(localTodos);
-    localTodos = localTodos.splice(todoToDelIndex, 1);
-    console.log(localTodos);
-    // setTodos(localTodos);
+    localTodos.splice(todoToDelIndex, 1);
+    setTodos(localTodos);
   };
 
   const storeTodosLocal = useCallback(() => {
@@ -74,6 +72,7 @@ const HomePage = () => {
     <section className={styles.wrap}>
       <ShowDate selectedDate={date} monthNames={monthNames} />
       <Todos
+        showInput={true}
         todos={todos}
         addTodo={(e) => addTodo(e)}
         delTodo={delTodo}

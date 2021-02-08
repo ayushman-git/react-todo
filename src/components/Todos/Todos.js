@@ -2,6 +2,8 @@ import styles from "./Todos.module.css";
 import Todo from "./Todo/Todo";
 
 const Todos = (props) => {
+  let input;
+
   const todos = props.todos?.map((todo) => {
     return (
       <Todo
@@ -21,9 +23,13 @@ const Todos = (props) => {
       e.target.value = "";
     }
   };
+
+  if (props.showInput) {
+    input = <input className={styles.inp} type="text" onKeyUp={onEnter} />;
+  }
   return (
     <section className={styles.todosWrap}>
-      <input className={styles.inp} type="text" onKeyUp={onEnter} />
+      {input}
       {todos}
     </section>
   );
