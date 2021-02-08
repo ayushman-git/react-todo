@@ -18,3 +18,7 @@
   color: #374a76;
   font-size: 1.6em;
 }
+
+.inp::placeholder {
+  color: rgba(252, 163, 17, 0.5);
+}

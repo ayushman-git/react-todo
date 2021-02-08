@@ -25,7 +25,14 @@ const Todos = (props) => {
   };
 
   if (props.showInput) {
-    input = <input className={styles.inp} type="text" onKeyUp={onEnter} />;
+    input = (
+      <input
+        className={styles.inp}
+        type="text"
+        onKeyUp={onEnter}
+        placeholder="Add task"
+      />
+    );
   }
   return (
     <section className={styles.todosWrap}>
